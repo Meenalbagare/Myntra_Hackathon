@@ -1,7 +1,7 @@
 # Myntra_Hackathon
-MEENAL BAGARE
-VAIBHAVI MAHINDRAKAR
-V RICKVIBHADHINI
+MEENAL BAGARE<br>
+VAIBHAVI MAHINDRAKAR<br>
+V RICKVIBHADHINI<br>
 
 ## AIM
 To create a fashion trend identification and generation system using a combination of old vintage clothing collections and contemporary trends datasets. 
