@@ -1,6 +1,6 @@
 # Myntra_Hackathon
 - [Meenal Bagare](https://github.com/Meenalbagare)<br>
-VAIBHAVI MAHINDRAKAR<br>
+- [Vaibhavi Mahindrakar](https://github.com/vam28)<br>
 - [V Rickvibhadhini](https://github.com/rickvibhadhini)<br>
 
 ## AIM
