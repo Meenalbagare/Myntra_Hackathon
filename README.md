@@ -15,15 +15,11 @@ We have trained a CycleGAN to transform images between the two styles (contempor
 
 ![image](https://github.com/user-attachments/assets/0590cdb2-6b2b-4856-9708-f28a87fdf2a7)
 
-![image](https://github.com/user-attachments/assets/2e85266e-23ed-44c0-8739-8d345c29f682)
-
 ![image](https://github.com/user-attachments/assets/60567842-7c4a-4e18-be27-b9e656b8bcbb)
-
-![image](https://github.com/user-attachments/assets/ee24d9be-fe3c-41a9-a9ed-0a1a2a6f3ada)
 
 ![image](https://github.com/user-attachments/assets/a643f534-3b5d-4a30-95a1-f3eb7da4351a)
 
-![image](https://github.com/user-attachments/assets/5933b8d7-b778-4b86-93b7-332b47638a8c)
+
 
 
 
