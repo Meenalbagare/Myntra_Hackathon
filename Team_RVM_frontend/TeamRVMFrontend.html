@@ -13,6 +13,7 @@
     .bgimg-1 { background-position: center; background-size: cover; background-image: url("/headerbackground5.jpg"); min-height: 100%; }
     .w3-bar .w3-button { padding: 16px; }
   </style>
+  <script dref src="newsfetch.js"></script>
 </head>
 <body>
 
@@ -63,25 +64,82 @@
 
 <!-- Upload Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="upload">
-  <h3 class="w3-center">Upload Your Vintage</h3>
-  <p class="w3-center w3-large">Add Your Vintage Flair</p>
-  <div style="margin-top:48px">
-    <form action="/upload_vintage" method="post" enctype="multipart/form-data">
-      <p><input class="w3-input w3-border" type="file" accept="image/*" required name="Image"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Describe the clothing" required name="Description"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Era of the clothing (e.g., 1970s)" required name="Era"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Category (e.g., Dress, Jacket)" required name="Category"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Additional Notes" name="Notes"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> Add to Vin Collection
-        </button>
-      </p>
-    </form>
-    <!-- Image of location/map -->
-    <img src="/uploadimage.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
-  </div>
-</div> 
+    <h3 class="w3-center">Upload Your Vintage</h3>
+    <p class="w3-center w3-large">Add Your Vintage Flair</p>
+    <div style="margin-top:48px">
+      <form id="uploadForm" action="/upload_vintage" method="post" enctype="multipart/form-data" onsubmit="return handleFormSubmit(event)">
+        <p><input id="imageInput" class="w3-input w3-border" type="file" accept="image/*" required name="Image"></p>
+        <p><input id="descriptionInput" class="w3-input w3-border" type="text" placeholder="Describe the clothing" required name="Description"></p>
+        <p><input id="eraInput" class="w3-input w3-border" type="text" placeholder="Era of the clothing (e.g., 1970s)" required name="Era"></p>
+        <p><input id="categoryInput" class="w3-input w3-border" type="text" placeholder="Category (e.g., Dress, Jacket)" required name="Category"></p>
+        <p><input id="notesInput" class="w3-input w3-border" type="text" placeholder="Additional Notes" name="Notes"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit" id="submitButton">
+            <i class="fa fa-paper-plane"></i> Add to Vin Collection
+          </button>
+        </p>
+      </form>
+      <!-- Image of location/map -->
+      <img src="/uploadimage.jpg" class="w3-image w3-greyscale" style="width:100%;margin-top:48px">
+    </div>
+  </div> 
+  
+
+  <script>
+    function handleFormSubmit(event) {
+        event.preventDefault(); // Prevent the default form submission
+    
+        // Get the form and file input elements
+        const form = document.getElementById('uploadForm');
+        const fileInput = document.getElementById('imageInput');
+        const file = fileInput.files[0];
+    
+        if (file) {
+            // Download the image file
+            const imageUrl = URL.createObjectURL(file);
+            const aImage = document.createElement('a');
+            aImage.href = imageUrl;
+            aImage.download = file.name; // Use the file name for the download
+            aImage.click();
+    
+            // Clean up the URL object
+            URL.revokeObjectURL(imageUrl);
+    
+            // Prepare the text content for details
+            const description = document.getElementById('descriptionInput').value;
+            const era = document.getElementById('eraInput').value;
+            const category = document.getElementById('categoryInput').value;
+            const notes = document.getElementById('notesInput').value;
+            
+            const textContent = `Image File: ${file.name}\nDescription: ${description}\nEra: ${era}\nCategory: ${category}\nNotes: ${notes}`;
+    
+            // Create a Blob for the text content
+            const textBlob = new Blob([textContent], { type: 'text/plain' });
+            const textUrl = URL.createObjectURL(textBlob);
+    
+            // Download the text file
+            const aText = document.createElement('a');
+            aText.href = textUrl;
+            aText.download = 'uploaded_image_details.txt';
+            aText.click();
+    
+            // Clean up the URL object
+            URL.revokeObjectURL(textUrl);
+    
+            // Optionally, reset the form
+            form.reset();
+    
+            // Display a success message
+            alert('Image and details saved!');
+        } else {
+            alert('No file selected!');
+        }
+    }
+    </script>
+    
+    
+    
+    
 
 <!-- Latest Trend News Section -->
 <div class="w3-container w3-light-grey" style="padding:128px 16px" id="trend-news">
@@ -92,9 +150,9 @@
         <div class="w3-card w3-round-large w3-hover-shadow">
           <img src="/parisfashionweek.jpg" alt="Paris Fashion Week" style="width:100%">
           <div class="w3-container">
-            <h3 class="w3-opacity w3-center">Paris Fashion Week</h3>
-            <p class="w3-center">Discover stunning collections from top designers like Chanel, Dior, and Louis Vuitton.</p>
-            <a href="#" class="w3-button w3-block w3-black w3-round-large">Explore</a>
+            <h3 class="w3-opacity w3-center" id="title1">Fashion meets politics on the RNC's red carpet</h3>
+            <p class="w3-center" id="news-url1"></p>
+            <a href="https://www.npr.org/2024/07/19/g-s1-12190/fashion-meets-politics-on-the-rncs-red-carpet" class="w3-button w3-block w3-black w3-round-large">Read More</a>
           </div>
         </div>
       </div>
@@ -102,9 +160,9 @@
         <div class="w3-card w3-round-large w3-hover-shadow">
           <img src="/sustainablefashion.jpg" alt="Sustainable Fashion Movement" style="width:100%">
           <div class="w3-container">
-            <h3 class="w3-opacity w3-center">Sustainable Fashion</h3>
-            <p class="w3-center">Learn about eco-friendly practices and materials with companies like Patagonia and Stella McCartney.</p>
-            <a href="#" class="w3-button w3-block w3-black w3-round-large">Discover More</a>
+            <h3 class="w3-opacity w3-center" id="title2">Best Prime Day Deals Under $50 Still Available: Grab New Headphones, Home Tech, Fashion Finds and More</h3>
+            <!-- <p class="w3-center" id="news-url2">Learn about eco-friendly practices and materials with companies like Patagonia and Stella McCartney.</p> -->
+            <a href="https://www.cnet.com/deals/best-prime-day-deals-under-50-still-available-2024-07-18/" class="w3-button w3-block w3-black w3-round-large">Read More</a>
           </div>
         </div>
       </div>
@@ -112,9 +170,9 @@
         <div class="w3-card w3-round-large w3-hover-shadow">
           <img src="/digitalfashion.jpg" alt="Digital Fashion Shows" style="width:100%">
           <div class="w3-container">
-            <h3 class="w3-opacity w3-center">Digital Fashion Shows</h3>
-            <p class="w3-center">Experience virtual fashion shows and augmented reality in the new era of global challenges.</p>
-            <a href="#" class="w3-button w3-block w3-black w3-round-large">Virtual Experience</a>
+            <h3 class="w3-opacity w3-center" id="title3">The latest 'it bag' comes from an under-the-radar fashion house that a millennial made cool again </h3>
+            <!-- <p class="w3-center" id="news-url3">Experience virtual fashion shows and augmented reality in the new era of global challenges.</p> -->
+            <a href="//www.businessinsider.com/it-bag-from-courreges-quiet-luxury-millennial-nicolas-di-felice-2024-7" class="w3-button w3-block w3-black w3-round-large">Read More</a>
           </div>
         </div>
       </div>
@@ -122,9 +180,9 @@
         <div class="w3-card w3-round-large w3-hover-shadow">
           <img src="/inclusivefashion.jpg" alt="Inclusive Fashion" style="width:100%">
           <div class="w3-container">
-            <h3 class="w3-opacity w3-center">Inclusive Fashion</h3>
-            <p class="w3-center">Explore brands expanding size ranges and featuring diverse models in campaigns and runway shows.</p>
-            <a href="#" class="w3-button w3-block w3-black w3-round-large">Discover Diversity</a>
+            <h3 class="w3-opacity w3-center" id="title4">Gen Z's latest fashion hack is using iPhone Notes to plan outfits. Here's how todo it yourself</h3>
+            <!-- <p class="w3-center" id="news-url4">Explore brands expanding size ranges and featuring diverse models in campaigns and runway shows.</p> -->
+            <a href="//www.businessinsider.com/gen-z-fashion-hack-uses-iphone-notes-to-plan-outfits-2024-7" class="w3-button w3-block w3-black w3-round-large">Read More</a>
           </div>
         </div>
       </div>
