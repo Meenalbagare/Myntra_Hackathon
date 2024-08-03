@@ -16,9 +16,17 @@ We have trained a CycleGAN to transform images between the two styles (contempor
 ![image](https://github.com/user-attachments/assets/a643f534-3b5d-4a30-95a1-f3eb7da4351a) <br>
 ![image](https://github.com/user-attachments/assets/60567842-7c4a-4e18-be27-b9e656b8bcbb)<br>
 
+Diffusion Models
+
+![image](https://github.com/user-attachments/assets/175895b9-b572-472b-8f44-c185371d71dc)<br>
+![image](https://github.com/user-attachments/assets/bafcf883-4808-45bc-8411-7ab5d099213a)<br>
+![image](https://github.com/user-attachments/assets/db572c01-99ae-4d8e-9ed5-8607e0008e14)<br>
+
 Trend Analysis Plots
-![image](https://github.com/user-attachments/assets/f8534ead-6e63-45e8-9b8a-e6101e7d9186)
-![image](https://github.com/user-attachments/assets/0187c109-5f9b-4062-ae57-a627c0878c09)
+
+![image](https://github.com/user-attachments/assets/f8534ead-6e63-45e8-9b8a-e6101e7d9186)<br>
+![image](https://github.com/user-attachments/assets/0187c109-5f9b-4062-ae57-a627c0878c09)<br>
+
 
 
 
