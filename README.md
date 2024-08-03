@@ -16,6 +16,12 @@ We have trained a CycleGAN to transform images between the two styles (contempor
 ![image](https://github.com/user-attachments/assets/a643f534-3b5d-4a30-95a1-f3eb7da4351a) <br>
 ![image](https://github.com/user-attachments/assets/60567842-7c4a-4e18-be27-b9e656b8bcbb)<br>
 
+Trend Analysis Plots
+![image](https://github.com/user-attachments/assets/f8534ead-6e63-45e8-9b8a-e6101e7d9186)
+![image](https://github.com/user-attachments/assets/0187c109-5f9b-4062-ae57-a627c0878c09)
+
+
+
           
 
 
